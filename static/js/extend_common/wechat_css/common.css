@@ -1,0 +1,20 @@
+body{
+    font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+}
+.container .weui-cells{
+    /*font-size: 14px;*/
+}
+.header{
+    max-width: 100%;
+    margin: 30px 20px 20px 20px;
+    text-align: center;
+}
+.header img{
+    display: inline-block;
+    max-width: 100%;
+    height: 100px;
+}
+
+.footer{
+    margin-top:24px;
+}
