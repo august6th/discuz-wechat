@@ -57,7 +57,7 @@
 3. 账号绑定的表单的运行环境，手机端微信浏览器，和电脑端微信浏览器，是有可能出现不同的乱码情况的。
 
 
-### 开发流程
+### 开发流程（先看补充部分）
 
 1. 配置好我们的论坛后台设置，关联 "中国模具论坛" 微信公众号的 Appid 以及 Appsecret （这个需要结合好，我们的微信公众号设置）
 
@@ -144,3 +144,17 @@
    这里我添加到以前的一个计划任务中 *source/include/cron/cron_sort_block_daily.php*
 
    本目录下文件，覆盖一下就完成了。
+
+### 补充
+
+>这是正式上线论坛之后的补充部分。
+
+1. 微信自带的插件中，你的  ***common_member_wechat*** 表需要新增一个 ```fetch_by_uid``` 的方法。
+
+2. 绑定页面的语言包和图片别忘了
+
+   *source/language/lang_wechat_bind.php*
+
+   *static/image/common/mould500.png*
+
+   ​
