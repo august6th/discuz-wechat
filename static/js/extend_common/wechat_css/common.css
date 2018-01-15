@@ -14,6 +14,51 @@ body{
     max-width: 100%;
     height: 100px;
 }
+.fast-bind-container{
+    height: 100%;
+}
+
+.fast-bind-container .main-body {
+    padding-top:36px;
+    text-align: center;
+}
+
+.fast-bind-container .img-area{
+    height: 100px;
+    width: 70%;
+    display:inline;
+    /*background: #0e6796;*/
+}
+
+.fast-bind-container .img-area span {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.fast-bind-container .img-area span img {
+    width: 94px;
+    border-radius: 50%;
+    box-shadow: 0 0 7px #888;
+    margin:0 10px;
+}
+
+.fast-bind-container .img-area span .fast-bind-img{
+    width: 24px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.fast-bind-container .img-area h2{
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.fast-bind-container .img-area p {
+    font-size: 14px;
+    color: #999999;
+    padding:0 60px;
+}
 
 .footer{
     margin-top:24px;

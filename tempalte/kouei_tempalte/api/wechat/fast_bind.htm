@@ -1,0 +1,49 @@
+<!--{template api/common/header}-->
+<div class="fast-bind-container">
+    <!--{if !$flag}-->
+        <!--{if !$message}-->
+            <div class="main-body">
+                <div class="img-area">
+                    <span><img src="{$_G[staticurl]}/image/common/mouldbbs300.png" alt="{$lang[mouldbbs]}"></span>
+                    <span><img src="{$_G[staticurl]}/image/common/fast_bind.png" alt="fast_bind" class="fast-bind-img"></span>
+                    <span><!--{avatar($_G[uid], middle)}--></span>
+                    <h2>{$_G[username]}</h2>
+                    <p>{$lang[check_someone_login]}</p>
+                </div>
+            </div>
+            <form action="/api.php?mod=bind&fastbindsubmit=yes"  method="post" id="bind-form" accept-charset="UTF-8" onsubmit="document.charset='UTF-8';">
+                <input type="hidden" name="formhash" value="{FORMHASH}">
+                <!--{if $openid}-->
+                <input type="hidden" name="openid" value="{$openid}">
+                <!--{/if}-->
+                <div class="weui-btn-area">
+                    <input type="submit" value="{$lang[fast_bind]}" class="weui-btn weui-btn_primary">
+                    <a class="weui-btn weui-btn_default" href="/api.php?mod=bind&type=other&openid=$openid">{$lang[other_bind]}</a>
+                </div>
+            </form>
+        <!--{else}-->
+            <div class="weui-msg">
+                <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+                <div class="weui-msg__text-area">
+                    <h2 class="weui-msg__title">{$lang[bind_failed]}</h2>
+                    <p class="weui-msg__desc">{$message}</p>
+                </div>
+                <div class="weui-msg__opr-area">
+                    <p class="weui-btn-area">
+                        <a href="javascript:history.back();" class="weui-btn weui-btn_primary">{$lang[try_again]}</a>
+                    </p>
+                </div>
+            </div>
+        <!--{/if}-->
+    <!--{else}-->
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">{$lang[bind_ok]}</h2>
+                <p class="weui-msg__desc">{$lang[can_sign_in_wechat]}</p>
+            </div>
+            <br>
+        </div>
+    <!--{/if}-->
+</div>
+<!--{template api/common/footer}-->

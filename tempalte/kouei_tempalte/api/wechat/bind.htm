@@ -1,66 +1,55 @@
-<!DOCTYPE html>
-<html lang="zh_CN">
-<head>
-    <meta charset="{CHARSET}">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{$lang[title]}</title>
-    <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
-    <link rel="stylesheet" href="{$_G[setting][jspath]}extend_common/wechat_css/common.css">
-    <script type="text/javascript" src="//res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
-    <script src="{$_G[setting][jspath]}extend_common/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-<div class="weui-toptips weui-toptips_warn js_tooltips"></div>
+<!--{template api/common/header}-->
 <div class="container">
     <!--{if !$flag}-->
-    <!--{if !$message}-->
-    <div class="header">
-        <img src="{$_G[staticurl]}/image/common/mouldbbs500.png" alt="{$lang[mouldbbs]}">
-    </div>
-    <form action="/api.php?mod=bind&bindsubmit=yes" method="post" id="bind-form" accept-charset="UTF-8" onsubmit="document.charset='UTF-8';">
-        <div class="weui-cells weui-cells_form">
-            <input type="hidden" name="formhash" value="{FORMHASH}">
-            <!--{if $openid}-->
-            <input type="hidden" name="openid" value="{$openid}">
-            <!--{/if}-->
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">{$lang[username]}</label>
+        <!--{if !$message}-->
+        <div class="header">
+            <img src="{$_G[staticurl]}/image/common/mouldbbs500.png" alt="{$lang[mouldbbs]}">
+        </div>
+        <form action="/api.php?mod=bind&type=other&bindsubmit=yes" method="post" id="bind-form" accept-charset="UTF-8" onsubmit="document.charset='UTF-8';">
+            <div class="weui-cells weui-cells_form">
+                <input type="hidden" name="formhash" value="{FORMHASH}">
+                <!--{if $openid}-->
+                <input type="hidden" name="openid" value="{$openid}">
+                <!--{/if}-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">{$lang[username]}</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="text" name="username" class="weui-input" placeholder="{$lang[username_placeholder]}">
+                    </div>
                 </div>
-                <div class="weui-cell__bd">
-                    <input type="text" name="username" class="weui-input" placeholder="{$lang[username_placeholder]}">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">{$lang[password]}</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="password" name="password" class="weui-input"
+                               placeholder="{$lang[password_placeholder]}">
+                    </div>
                 </div>
             </div>
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">{$lang[password]}</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input type="password" name="password" class="weui-input"
-                           placeholder="{$lang[password_placeholder]}">
-                </div>
+            <div class="weui-btn-area">
+                <input type="submit" value="{$lang[bind]}" class="weui-btn weui-btn_primary">
+                <!--{if !$has_login || !$_G[uid]}-->
+                <a class="weui-btn weui-btn_default" href="/source/plugin/login_mobile/fe/regist.html">{$lang[no_account]}</a>
+                <!--{/if}-->
+            </div>
+        </form>
+        <!--{else}-->
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">{$lang[bind_failed]}</h2>
+                <p class="weui-msg__desc">{$message}</p>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="javascript:history.back();" class="weui-btn weui-btn_primary">{$lang[try_again]}</a>
+                </p>
             </div>
         </div>
-        <div class="weui-btn-area">
-            <input type="submit" value="{$lang[bind]}" class="weui-btn weui-btn_primary">
-        </div>
-    </form>
-    <!--{else}-->
-    <div class="weui-msg">
-        <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
-        <div class="weui-msg__text-area">
-            <h2 class="weui-msg__title">{$lang[bind_failed]}</h2>
-            <p class="weui-msg__desc">{$message}</p>
-        </div>
-        <div class="weui-msg__opr-area">
-            <p class="weui-btn-area">
-                <a href="javascript:history.back();" class="weui-btn weui-btn_primary">{$lang[try_again]}</a>
-            </p>
-        </div>
-    </div>
-    <!--{/if}-->
+        <!--{/if}-->
     <!--{else}-->
     <div class="weui-msg">
         <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
@@ -71,15 +60,7 @@
         <br>
     </div>
     <!--{/if}-->
-    <div class="footer weui-footer">
-        <p class="weui-footer__links">
-            <a href="http://www.mouldbbs.com" class="weui-footer__link">{$lang[mouldbbs]}</a>
-            <a href="https://www.mould.net.cn" class="weui-footer__link">{$lang[mouldcn]}</a>
-        </p>
-        <p class="weui-footer__text">{$lang[ICP]} &copy; Designed by Ara</p>
-    </div>
 </div>
-</body>
 <script>
     $(function () {
         var username = $("input[name=username]");
@@ -116,4 +97,4 @@
         });
     });
 </script>
-</html>
+<!--{template api/common/footer}-->
