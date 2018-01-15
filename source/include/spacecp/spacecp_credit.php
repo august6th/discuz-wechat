@@ -111,6 +111,9 @@ function makecreditlog($log, $otherinfo=array()) {
         case 'OAS':
             $log['opinfo'] = lang('spacecp', 'wechat_sign');
             break;
+        case 'OAB':
+            $log['opinfo'] = lang('spacecp', 'wechat_bind');
+            break;
 		case 'ACC':
 			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'join').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'activity_credit').'</a>';
 			break;

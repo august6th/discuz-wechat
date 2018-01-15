@@ -313,10 +313,10 @@ SEARCH;
 
 } elseif($operation == 'credit') {
 
-	$operationlist = array('TRC', 'RTC', 'RAC', 'MRC', 'TFR', 'RCV', 'CEC', 'ECU', 'SAC', 'BAC', 'PRC', 'RSC', 'STC', 'BTC', 'AFD', 'UGP', 'RPC', 'ACC', 'RCT', 'RCA', 'RCB', 'CDC', 'RKC', 'BME', 'RPR', 'RPZ', 'OAS');
+	$operationlist = array('TRC', 'RTC', 'RAC', 'MRC', 'TFR', 'RCV', 'CEC', 'ECU', 'SAC', 'BAC', 'PRC', 'RSC', 'STC', 'BTC', 'AFD', 'UGP', 'RPC', 'ACC', 'RCT', 'RCA', 'RCB', 'CDC', 'RKC', 'BME', 'RPR', 'RPZ', 'OAS', 'OAB');
 
 	$rdata = array(
-		'task' => array('TRC', 'OAS'),
+		'task' => array('TRC', 'OAS', 'OAB'),
 		'thread' => array('RTC', 'RAC', 'STC', 'BTC', 'ACC', 'RCT', 'RCA', 'RCB'),
 		'member' => array('TFR', 'RCV', 'CEC', 'ECU', 'AFD', 'CDC', 'RKC', 'RPR', 'RPZ'),
 		'attach' => array('BAC', 'SAC'),

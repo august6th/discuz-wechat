@@ -79,7 +79,7 @@ function getResult ($uid, $openid, $lang){
         return $lang['openid_has_been_binded'];
     } else {
         weChatHook::bindOpenId($uid, $openid);
-        updatemembercount($uid, array('2' => '10'), true, '', 667, '', '绑定公众号', '首次绑定公众号获得奖励');
+        updatemembercount($uid, array('2' => '10'), true, 'OAB', 667);
         $client->sendTextMsg($openid, urlencode(diconv("恭喜您，首次绑定成功！/::P\n\n获得 10 金钱，<a href='$_G[siteurl]'>请在论坛中查看</a>/:circle", CHARSET, 'UTF-8')));
         return true;
     }
